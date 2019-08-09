@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <select name="" id="province"></select>
+    <select name="" id="city"></select>
+    <select name="" id="area"></select>
+    
+    <script type="text/javascript">
+        var province = document.getElementById("province");
+        var city = document.getElementById("city");
+        var area = document.getElementById("area");
+        var arr = {
+            "河南省": [
+                {
+                    "郑州市": ["二七区", "中原区", "惠济区", "QQ区", "微信区"],
+                    "洛阳市": ["老城区", "西工区", "吉利区"],
+                }
+            ],
+            "山西省": [
+                {
+                    "太原市": ["小店区", "晋源区", "迎泽区", "杏花岭区"],
+                    "临汾市": ["高河店", "尧都区", "乡宁县"],
+                }
+            ],
+            "陕西省": [
+                {
+                    "西安市": ["莲湖区", "未央区", "长安区", "临潼区"],
+                    "渭南": ["这个区", "那个区"]
+                }
+            ]
+        }
+
+
+        function init() {
+            for(var i in arr) {
+                province.innerHTML+="<option>"+i+"</option>"
+            }
+            changeCity();
+            changeArea();
+        }
+        init();
+        function changeCity() {
+            city.innerHTML = "";
+            var cityArr = arr[province.value][0];
+            for (var j in cityArr) {
+                city.innerHTML += "<option>" + j + "</option>";
+            }
+        }
+        function changeArea() {
+            area.innerHTML = "";
+            var areaArr = arr[province.value][0][city.value];
+            for (var a = 0; a < areaArr.length; a++) {
+                area.innerHTML += "<option>" + areaArr[a] + "</option>";
+            }
+        }
+        province.onchange = function () {
+            changeCity();
+            changeArea();
+        }
+        city.onchange = function(){
+            changeArea();
+        }
+    </script>
+</body>
+
+</html>
