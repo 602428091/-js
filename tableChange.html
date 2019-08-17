@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        width: 300px;
+        height: 35px;
+        line-height: 35px;
+        background-color: #999;
+    }
+
+    .content {
+        width: 300px;
+        height: 100px;
+        background-color: #999;
+    }
+
+    li {
+        list-style: none;
+        float: left;
+        margin-left: 15px;
+    }
+
+    .on {
+        color: aqua;
+    }
+
+    .con {
+        display: block !important;
+    }
+
+    p {
+        display: none;
+        color: #fff;
+        font-size: 14px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <ul>
+            <li class="on">标题一</li>
+            <li>标题二</li>
+            <li>标题三</li>
+        </ul>
+    </div>
+    <div class="content">
+        <p class="con">html html html html html html html</p>
+        <p>css</p>
+        <p>javascript</p>
+    </div>
+    <script type="text/javascript">
+        var li = document.getElementsByTagName("li")   
+        var p = document.getElementsByTagName("p");
+        for (var i = 0; i < li.length; i++) {  
+            (function(n){        //使用立即执行函数
+                li[n].onclick = function(){  
+                    changeTab()
+                    this.setAttribute("class","on") //给当前点击的li和p标签添加类名
+                    p[n].className = "con"       
+                }
+            })(i)
+        }
+        function changeTab(){   //清除掉li和p标签上的所有类名，
+            for(var i = 0;i<li.length;i++){
+                li[i].className = "";
+                p[i].className = "";   
+            }
+        }
+    </script>
+</body>
+
+</html>
