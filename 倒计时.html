@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        
+    <h1 id="show">距离2020年中秋还有：<span></span>天<span></span>小时<span></span>分<span></span>秒</h1>  
+		
+		<script>
+            //getTime() 获得设定的时期与1970年1月1日时间相差的毫秒数
+			var show=document.getElementById("show").getElementsByTagName("span");  //获得插入数字的位置
+			// setInterval 设置定时器每一秒获取一次新的时间  以固定的时间间隔重复调用一个函数或者代码段
+			setInterval(function(){
+			var timeing=new Date();                        //声明现在的时间和未来的时间
+			var time=new Date(2019,8,13,0,0,0);             //结束时间
+            var num=time.getTime()-timeing.getTime();      //获得两个时间差
+            
+            var day=parseInt(num/(24*60*60*1000));		   //计算天数(24小时60分钟60秒*1000毫秒) parseInt()取整
+            num=num%(24*60*60*1000);                       //获得去除天数后剩余的毫秒数
+
+            var hour=parseInt(num/(60*60*1000));           //计算小时和获得去除小时后剩余的毫秒数   
+            num=num%(60*60*1000);                     
+            var minute=parseInt(num/(60*1000));            //计算分钟和获得去除分钟后剩余的毫秒数
+            num=num%(60*1000);
+            var seconde=parseInt(num/1000);                //计算秒
+             
+              show[0].innerHTML=day;                      //页面上显示
+              show[1].innerHTML=hour;
+              show[2].innerHTML=minute;
+              show[3].innerHTML=seconde;
+            },100)
+                                                
+            
+		</script>
+</body>
+</html>
