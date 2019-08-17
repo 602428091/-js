@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .content {
+        position: relative;
+        width: 120px;
+        height: 40px;
+        margin: 50px auto;
+        background-color: #999;
+        overflow: hidden;
+    }
+
+    ul {
+        width: 200px;
+        transition: all .5s linear;
+        margin: auto;
+        position: absolute;
+    }
+
+    li {
+        list-style: none;
+        width: 100px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+
+    }
+</style>
+
+<body>
+    <div class="content">
+        <ul class="ul">
+            <li>床前明月光</li>
+            <li>疑似地上霜</li>
+            <li>举头望明月</li>
+            <li>低头思故乡</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        var content = document.getElementsByClassName("content")[0];
+        var ul = document.getElementsByClassName("ul")[0];
+        var li = document.getElementsByTagName("li");
+        var i = 0
+        var timer = setInterval(change, 1000);
+        function change() {
+            if (-i * 40 == -160) {
+                i = 0;
+            } else {
+                ul.style.top = -i * 40 + "px";
+                i++
+            }
+        }
+        content.onmouseover = function () {
+            clearInterval(timer)
+        }
+        content.onmouseout = function () {
+            timer = setInterval(change, 1500)
+        }
+
+    </script>
+</body>
+
+</html>
