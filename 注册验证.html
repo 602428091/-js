@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+.container{
+    width: 295px;
+    height: 380px;
+    border: 1px solid black;
+    margin: 50px auto;
+    background-color: #999
+}
+input{
+    width: 250px;
+    height: 40px;
+    margin: 20px 0 0 20px;
+}
+button{
+    background: #ff6700;
+    width: 250px;
+    height: 40px;
+    line-height: 40px;
+    margin: 20px 0 0 20px;
+}
+li{
+    list-style: none
+}
+P{
+    width: 250px;
+    height: 40px;
+    line-height: 40px;
+    margin: auto;
+    color: red;
+    font-size: 18px;
+    text-align: center;
+}
+</style>
+<body>
+    <div class="container">
+        <ul>
+            <P>注册终生健康VIP证</P>
+            <li>
+                <input type="text" placeholder="请输入手机号" maxlength="11">
+            </li>
+            <li>
+                <input type="password" placeholder="请输入6-12位数字和字母组合" maxlength="12">
+            </li>
+            <li>
+                <input type="text"placeholder="请输入身份证号" maxlength="18">
+            </li>
+            <li>
+                <input type="text" placeholder="请输入邮箱地址">
+            </li>
+            <li>
+                <button>立即注册</button>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var phone = document.getElementsByTagName("input")[0];
+        var password = document.getElementsByTagName("input")[1];
+        var idCard = document.getElementsByTagName("input")[2];
+        var email = document.getElementsByTagName("input")[3];
+        var btn = document.getElementsByTagName("button")[0];
+        var patt = /^[1][0-9]{1,10}$/
+        var patt1 = /^[0-9]+[a-zA-Z]{5,11}$/
+        var patt2 = /^\d{15,17}[0-9xX]$/
+        var patt3 = /^\w{1,}@[0-9a-zA-Z]{1,}\.[a-zA-Z]{2,4}$/
+        btn.onclick = function(){
+            // if(patt.test(phone.value)==false){
+            //     alert("手机号输入不正确")
+            // }
+            if(patt1.test(password.value)==false){
+                alert("密码输入不正确")
+            }
+            // if(patt2.test(idCard.value)==false){
+            //     alert("身份证号输入不正确")
+            // }
+            // if(patt3.test(email.value)==false){
+            //     alert("邮箱格式输入不正确")
+            // }
+        }
+    </script>
+</body>
+
+</html>
