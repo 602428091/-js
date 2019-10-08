@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    canvas{
+        border: 1px solid red;
+    }
+</style>
+<body>
+    <canvas width="300" height="300" id="canvas"></canvas>
+    <script>
+        var canvas = document.getElementById("canvas")
+        var text =canvas.getContext("2d");
+        
+        text.arc(100,100,50,0,2*Math.PI)
+        text.strokeStyle="#a7a7a7"
+        text.lineWidth=5
+        text.stroke()
+        var num =0
+        var timer= setInterval(function(){
+            num++;
+            if(num>=75){
+                clearInterval(timer)
+            }
+            text.beginPath()
+            text.arc(100,100,50,-0.5*Math.PI,((num/75*1.5)-0.5)*Math.PI);
+            text.strokeStyle="#ff7f00"
+            text.font="20px 微软雅黑"
+            text.clearRect(70,110,50,-30)
+            text.fillText(num,70,110);
+            text.fillText("%",95,110)
+            text.stroke()
+            
+        },50)
+        
+        
+    </script>
+</body>
+</html>
